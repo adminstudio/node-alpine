@@ -1,4 +1,5 @@
 FROM alpine:3.9
+LABEL Maintaner "Asdrubal Gonzalez <agpenton@gmail.com>"
 
 ENV NODE_VERSION 10.16.1
 
