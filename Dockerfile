@@ -71,7 +71,11 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
   && apk add --no-cache --virtual .build-deps openssh-client \
         bash \
         rsync \
-        sshpass
+        sshpass \
+        make \
+        python \
+        gcc \
+        g++
 
 # COPY docker-entrypoint.sh /usr/local/bin/
 # ENTRYPOINT ["docker-entrypoint.sh"]
