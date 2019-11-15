@@ -75,7 +75,8 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
         make \
         python \
         gcc \
-        g++
+        g++ \
+        git
 
 # COPY docker-entrypoint.sh /usr/local/bin/
 # ENTRYPOINT ["docker-entrypoint.sh"]
