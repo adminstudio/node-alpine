@@ -87,12 +87,21 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
   && ln -s /opt/yarn-v$YARN_VERSION/bin/yarn /usr/local/bin/yarn \
   && ln -s /opt/yarn-v$YARN_VERSION/bin/yarnpkg /usr/local/bin/yarnpkg \
   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz \
-  && apk del .build-deps-yarn
+  && apk del .build-deps-yarn \
+  && apk add --no-cache --virtual .build-deps openssh-client \
+        bash \
+        rsync \
+        sshpass \
+        make \
+        python \
+        gcc \
+        g++ \
+        git
 
-COPY docker-entrypoint.sh /usr/local/bin/
-RUN chmod 777 /usr/local/bin/docker-entrypoint.sh \
-    && ln -s /usr/local/bin/docker-entrypoint.sh /
-ENTRYPOINT ["docker-entrypoint.sh"]
+# COPY docker-entrypoint.sh /usr/local/bin/
+# RUN chmod 777 /usr/local/bin/docker-entrypoint.sh \
+#     && ln -s /usr/local/bin/docker-entrypoint.sh /
+# ENTRYPOINT ["docker-entrypoint.sh"]
 
-CMD [ "node" ]
+# CMD [ "node" ]
 
